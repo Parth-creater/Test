@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Series</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fibonacci Series Generator</h1>
+    
+    <label for="numTerms">Enter the number of terms:</label>
+    <input type="number" id="numTerms" value="5" min="1" max="100">
+    <button onclick="generateFibonacci()">Generate Fibonacci Series</button>
+
+    <div class="output" id="output"></div>
+
+    <script>
+
+        function generateFibonacci() {
+            let numTerms = document.getElementById('numTerms').value;
+            numTerms = parseInt(numTerms);
+            
+            let fibonacci = [];
+            let a = 0, b = 1;
+            
+
+            for (let i = 0; i < numTerms; i++) {
+                fibonacci.push(a);
+                let nextTerm = a + b;
+                a = b;
+                b = nextTerm;
+            }
+            
+            document.getElementById('output').innerHTML = "Fibonacci Series: " + fibonacci.join(', ');
+        }
+    </script>
+</body>
+</html>
